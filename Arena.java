@@ -1,10 +1,16 @@
 class Arena {
 
     public static void main(String[] args) {
-        
-        // TODO : create two monsters
+        FireMonster fireMonster = new FireMonster("Fire Monster", 3);
+        AirMonster waterMonster = new AirMonster("Air Monster", 3);
 
-        // TODO : monsters attack each other
-        
+        while (fireMonster.getLife() > 0 && waterMonster.getLife() > 0) {
+            // combat
+            boolean isOpponentKO = fireMonster.attack(waterMonster);
+
+            if (!isOpponentKO) {
+                waterMonster.attack(fireMonster);
+            }
+        }
     }
 }
